@@ -1,8 +1,22 @@
 'use client'
-
-import { postTodoData } from "@/lib/todoServerAction"
 import { useState } from "react"
 import styles from './AddTodo.module.css'
+
+async function postTodoData(name, description){
+	try {
+		let res = await fetch('http://localhost:3000/api/todo', {
+			method: 'POST',
+			headers: {
+				'Content-Type':'application/json',
+			},
+			body: JSON.stringify({name, description})
+		})
+		if (!res.ok) throw new Error('Failed to add todo, try again later!')
+		return res.json()
+	} catch (error) {
+		return error.message
+	}
+}
 
 export default function AddTodo(){
 	const [todoData, setTodoData] = useState({
@@ -15,7 +29,15 @@ export default function AddTodo(){
 	}
 
 	const handleSubmit = async (e) =>{
-		let res = await postTodoData(todoData)
+		e.preventDefault()
+		let res = await postTodoData(todoData.todoName, todoData.todoDescription)
+		if (res.call === 1) {
+			alert('Successfully created todo')
+		}
+		setTodoData({
+			todoName: '',
+			todoDescription: ''
+		})
 	}
 
 	return <>
