@@ -1,4 +1,5 @@
 import todo_list from "@/models/todo_list"
+import { revalidatePath } from "next/cache"
 
 // import todo_list from "@/models/todo_list"
 export default function handler(req, res) {
@@ -26,8 +27,30 @@ async function getTodoList(req, res) {
 	})
 }
 
-function postTodoList(req, res) {
-	let {name, descri}
+async function postTodoList(req, res) {
+	let {name, description} = req.body
+	let _todoCreateRes = await todo_list.create({
+		todo_name: name, 
+		todo_description: description
+	})
+	console.log(_todoCreateRes, '')
+	res.status(201).json({
+		call: 1, 
+		_todoCreateRes
+	})
 }
 
-function deleteTodo(req, res) {}
+async function deleteTodo(req, res) {
+	let _id = +req.query.id
+	console.log(_id, 'delete id')
+	let _deleteTodoRes = await todo_list.destroy({
+		where: {
+			id: _id
+		}
+	})
+
+	res.status(200).json({
+		call: 1,
+		_deleteTodoRes
+	})
+}
