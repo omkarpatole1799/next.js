@@ -1,7 +1,19 @@
 import styles from "@/components/Todo/TodoList.module.css"
 import DeleteTodo from "./DeleteTodo"
-import { getTodoList } from "@/lib/todoServerAction"
-import EditTodoBtn from "./EditTodoBtn"
+import EditTodo from "./EditTodo"
+
+async function getTodoList() {
+	try {
+		let res = await fetch("http://localhost:3000/api/todo", {
+			method: "GET"
+		})
+		if (!res.ok) throw new Error("Failed to fetch todo list")
+
+		return res.json()
+	} catch (error) {
+		return error.message
+	}
+}
 
 export default async function TodoList() {
 	let { _todoList } = await getTodoList()
@@ -19,7 +31,7 @@ export default async function TodoList() {
 								</div>
 								<div>
 									<DeleteTodo id={todo.id}></DeleteTodo>
-									<EditTodoBtn id={todo.id}></EditTodoBtn>
+									<EditTodo id={todo.id}></EditTodo>
 								</div>
 							</li>
 						)

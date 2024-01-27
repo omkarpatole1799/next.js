@@ -1,0 +1,14 @@
+.addTodoForm{ 
+	margin-top: 2rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+}
+.todoInput {
+	padding: 5px;
+}
+.addTodoBtn {
+	width: fit-content;
+	padding: 5px;
+}

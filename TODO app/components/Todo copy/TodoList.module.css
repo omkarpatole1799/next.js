@@ -1,0 +1,22 @@
+.todoItems {
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	margin-top: 2rem;	
+
+	overflow-y:  scroll;
+	height: 30rem;
+}
+
+.todoItems::-webkit-scrollbar {
+	display: none;
+}
+
+.todoItem {
+	border: 1px solid #555;
+	width: 14rem;
+	padding: 1rem;
+	display: flex;
+	justify-content: space-between;
+}
