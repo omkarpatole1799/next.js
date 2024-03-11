@@ -16,19 +16,33 @@ export async function postTodoList(prevState, formData) {
 	let name = formData.get("todoName")
 	let description = formData.get("todoDescription")
 
+	let returnObj = {
+		nameErr: null,
+		descErr: null,
+		otherErr: null
+	}
+
 	if (name === "" || description === "") {
-		return {
-			errMsg: "Input's should not be empty."
-		}
+		returnObj.nameErr = "Please enter todo name"
+		returnObj.descErr = "Please enter description"
+		return returnObj
 	}
 
 	let _todoCreateRes = await todo_list.create({
 		todo_name: name,
 		todo_description: description
 	})
-	console.log(_todoCreateRes, "---")
-	revalidatePath("/todo/list")
-	redirect("/todo/list")
+
+
+	if (!(await _todoCreateRes?.id)) {
+		returnObj.nameErr = null
+		returnObj.descErr = null
+		returnObj.otherErr = "Todo not created please try again later."
+		return returnObj
+	} else {
+		revalidatePath("/todo/list")
+		redirect("/todo/list")
+	}
 }
 
 export async function updateTodo(prevState, formData) {
