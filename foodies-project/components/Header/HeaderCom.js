@@ -1,25 +1,23 @@
 import Link from "next/link";
 import brandLogo from '@/assets/logo.png'
+import Image from "next/image";
 
+import './HeaderCom.css'
 export default function HeaderCom(){
 	return <>
 	<header>
 
 		<Link href='/'>
-			A foodies app
-			<img src={brandLogo.src} alt="" />
+			<Image className="brand-logo" src={brandLogo} alt="brand logo"/>
 		</Link>
 
-		<ul>
-			<li>
-
-		<Link href='/meals'>Meals</Link>
+		<ul className="nav-items">
+			<li className="nav-item">
+				<Link href='/meals' className="nav-link">Meals</Link>
 			</li>
 
-			<li>
-
-
-		<Link href='/community'>Community</Link>
+			<li className="nav-item">
+				<Link href='/community' className="nav-link">Community</Link>
 			</li>
 		</ul>
 	</header>	
