@@ -1,11 +1,13 @@
-import Link from "next/link";
+import ImgCarouselCom from "@/components/ImageCarousel/ImgCarouselCom"
+import Link from "next/link"
 
 export default function Home() {
-  return (
-    <main>
-      <h1 style={{ color: 'white', textAlign: 'center' }}>
-        Time to get started!
-      </h1>
-    </main>
-  );
+	return (
+		<main>
+			<h1 style={{ color: "white", textAlign: "center" }}>
+				Time to get started!
+			</h1>
+			<ImgCarouselCom />
+		</main>
+	)
 }

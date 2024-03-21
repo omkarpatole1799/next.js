@@ -1,5 +1,4 @@
 header {
-
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
@@ -13,11 +12,9 @@ header {
 .nav-items {
 	display: flex;
 	gap: 2rem;
-
 }
 
 .nav-item {
-
 	list-style: none;
 }
 
@@ -30,9 +27,8 @@ header {
 	padding: 0.4em 0.8em;
 }
 
-.nav-link.active ,
+.nav-link.active,
 .nav-link:hover {
 	background-color: rgba(255, 255, 0, 0.221);
 	border-radius: 4rem;
 }
-
