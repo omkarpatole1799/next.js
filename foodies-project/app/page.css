@@ -1,0 +1,45 @@
+main {
+}
+.hero {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	align-items: center;
+	justify-content: center;
+	gap: 2rem;
+	max-width: 1344px;
+	margin-inline: auto;
+
+}
+
+.hero .img-carousel-box {
+	width: 100%;
+}
+
+.hero .img-carousel-box img {
+	border: 3px solid #fff;
+	border-radius: 13px;
+}
+
+.hero h1 {
+	text-transform: uppercase;
+	color: #fe9512;
+	font-size: 3.4rem;
+	line-height: 1;
+
+	margin-bottom: 2rem;
+}
+
+.hero p {
+	color: #fff;
+	font-size: 1.6rem;
+	margin-bottom: 1.6rem;
+}
+
+.hero .hero-cta {
+	display: flex;
+	gap: 2rem;
+}
+
+.hero .hero-cta .hero-cta-link {
+	text-decoration: none;
+}

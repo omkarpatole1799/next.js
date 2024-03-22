@@ -14,6 +14,27 @@ body {
 	background: radial-gradient(#282c34, #282c34);
 }
 
+.btn {
+	outline: none;
+	border: none;
+
+	padding: 0.3em 0.8em;
+	font-size: 1.7rem;
+	font-weight: 700;
+
+	border-radius: 13px;
+}
+
+.btn-p {
+	background-color: #f9572a;
+	color: #fff;
+}
+
+.btn-s {
+	box-shadow: inset 0px 0px 0px 3px #f9572a;
+	color: #ffc905;
+}
+
 .header-background {
 	position: absolute;
 	width: 100%;
